@@ -4,7 +4,7 @@
 /*						INCLUDES							*/
 #include "../stdlibs/io_reg.h"
 #include "../stdlibs/stdtypes.h"
-#include "../stdlibs/stdlibs.h"
+#include "../stdlibs/bits_op.h"
 
 
 /*					DIO	MACRO DECLARATION					*/
@@ -50,7 +50,7 @@ no_ret	  dio_port_input(uint8);
 no_ret	  dio_port_input_pullup(uint8);
 no_ret	  dio_port_output_low(uint8);
 no_ret	  dio_port_output_high(uint8);
-no_ret	  dio_port_toggle(uint8)
+no_ret	  dio_port_toggle(uint8);
 uint8	  dio_port_read_PIN(uint8);
 uint8	  dio_port_read_PORT(uint8);
 

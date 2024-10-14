@@ -2,13 +2,15 @@
 
 static volatile uint8 *ports_reg[4] = {
 	&PORTA,&PORTB,&PORTC,&PORTD	
-}
+};
+
 static volatile uint8 *ddrs_reg[4] = {
 	&DDRA,&DDRB,&DDRC,&DDRD 
-}
+};
+
 static volatile uint8 *pins_reg[4] = {
 	&PINA,&PINB,&PINC,&PIND
-}
+};
 
 no_ret dio_pin_input(uint8 port,uint8 pin){
 	CLEAR_BIT(*ddrs_reg[port],pin);
@@ -67,7 +69,7 @@ no_ret dio_port_toggle(uint8 port){
 	if(dio_port_read_PIN(port))
 		dio_port_output_low(port);
 	else
-		dio_port_ouput_high(port);
+		dio_port_output_high(port);
 }
 
 uint8 dio_port_read_PIN(uint8 port){

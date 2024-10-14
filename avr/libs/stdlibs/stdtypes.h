@@ -13,6 +13,7 @@
 #define		sint32			signed long
 #define		sint64			signed long long
 
+#define		no_ret			void
 #define		EXIT_SUCCESS	0
 
 

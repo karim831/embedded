@@ -5,7 +5,7 @@
 
 /* 			MAPPING	I/O	REGISTERS IN DATA MEMORY			*/
 
-#define		__MAP(ADR)	((volatile uint8 *)(ADR + 0x20))
+#define		__MAP(ADR)	(*((volatile uint8 *)(ADR + 0x20)))
 
 
 /*				I/O REGISTERS DECLARATION					*/
