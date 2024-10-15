@@ -4,7 +4,7 @@ HAL = ../libs/hal
 
 MCU = atmega32
 
-F_CPU = 8e6UL
+F_CPU = 8000000UL
 
 OPT = s
 
