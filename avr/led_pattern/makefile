@@ -16,7 +16,6 @@ SIZE = avr-size
 
 
 CFLAG = -mmcu=$(MCU) -DF_CPU=$(F_CPU) -O$(OPT)
-ASMFLAG = -S
 
 
 SRC = $(PROJECT).c $(HAL)/dio.c 

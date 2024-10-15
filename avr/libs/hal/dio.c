@@ -69,6 +69,11 @@ no_ret dio_port_output_high(uint8 port){
 	*ddrs_reg[port] = *ports_reg[port] = DIO_FULL_REG;
 }
 
+no_ret dio_port_mask(uint8 port,uint8 mask){
+	*ddrs_reg[port] = DIO_FULL_REG; 
+	*ports_reg[port] = mask;
+}
+
 no_ret dio_port_toggle(uint8 port){
 	if(dio_port_read_PIN(port))
 		dio_port_output_low(port);
