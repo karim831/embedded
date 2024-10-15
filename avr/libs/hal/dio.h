@@ -2,12 +2,10 @@
 #define __DIO_H__
 
 /*						INCLUDES							*/
-#include "../stdlibs/io_reg.h"
 #include "../stdlibs/stdtypes.h"
-#include "../stdlibs/bits_op.h"
-
 
 /*					DIO	MACRO DECLARATION					*/
+
 
 
 #define			DIO_PORTA			((uint8)0x00)

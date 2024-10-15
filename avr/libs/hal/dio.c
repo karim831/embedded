@@ -1,4 +1,7 @@
 #include "./dio.h"
+#include "../stdlibs/io_reg.h"
+#include "../stdlibs/bits_op.h"
+
 
 static volatile uint8 *ports_reg[4] = {
 	&PORTA,&PORTB,&PORTC,&PORTD	
@@ -7,6 +10,7 @@ static volatile uint8 *ports_reg[4] = {
 static volatile uint8 *ddrs_reg[4] = {
 	&DDRA,&DDRB,&DDRC,&DDRD 
 };
+
 
 static volatile uint8 *pins_reg[4] = {
 	&PINA,&PINB,&PINC,&PIND
