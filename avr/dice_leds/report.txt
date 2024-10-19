@@ -1,0 +1,30 @@
+Dice_LEDS
+
+
+GOAL : 	
+	Turning on leds like dice cupe and increase number by pressing on button
+
+
+
+Steps : 
+	Initialize pin0 in portD as input connect to pull_up button then 
+		polling pin to check input on it
+
+	When press button application increases the num var (represent the number on dice) in range from
+		0 to 6 then goes to DICE_PATTERN function, which checks the num. 
+		if it's odd : 
+			it'll just drive high on pin connected in the middle of the dice because 
+			always odd number is after an even number.
+		if it's even : 
+			i'll need to check num if it's zero :
+				i'll just turn off the leds;
+			other :
+				that mean the number is even and non_zero so i need to drive on pin1 
+				low to close the dot in the middle of dice then drive high to
+				the pins represent the number and it doesn't depend on the code but
+				depend on the connection circuit.
+
+Tricks :
+	Making WHILE loop handle human speed to check button is not pressed.
+	
+	The way of connection circuit is also a trick to simplify the code.

@@ -1,0 +1,11 @@
+LED_PATTERN_REPORT
+
+
+GOAL :
+	Turning on leds in shifting way from pin0 in portB to pin7
+
+STEPS :
+	Turn on led on pin0 for 500ms then turn it off and increase the pin number
+
+Tricks : 
+	Modulus for driving a range of pins from 0 to 7 reprsenting the pins of a port
