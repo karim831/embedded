@@ -1,21 +1,17 @@
 #ifndef	__STDTYPES_H__
 #define __STDTYPES_H__
 
-/*			STDTYPES MACRO DECLARATION			*/	
+/*			STDTYPES_MACRO_DECLARATION			*/	
 
-#define		uint8			unsigned char
-#define		uint16			unsigned short
-#define		uint32			unsigned long
-#define		uint64			unsigned long long
+#define		Uint8			unsigned char
+#define		Uint16			unsigned short
+#define		Uint32			unsigned long
+#define		Uint64			unsigned long long
 
-#define		sint8			signed char
-#define 	sint16			signed short
-#define		sint32			signed long
-#define		sint64			signed long long
-
-#define		no_ret			void
-#define		EXIT_SUCCESS	0
-
+#define		Sint8			signed char
+#define 	Sint16			signed short
+#define		Sint32			signed long
+#define		Sint64			signed long long
 
 #endif
 

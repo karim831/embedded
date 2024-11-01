@@ -1,12 +1,24 @@
-#include <util/delay.h>
-#include "../libs/hal/dio.h"
+#include "application.h"
+
 
 int main(void){
-	uint8 pins = DIO_PIN0;
-	while(1){
-		dio_pin_output_high(DIO_PORTB,pins % 8);
-		_delay_ms(500);	
-		dio_pin_output_low(DIO_PORTB,pins++ % 8); 
-	}
-	return EXIT_SUCCESS;	
+    Setup();
+    Application();
+	return 0;	
+}
+
+void Setup(void){
+   for(Uint8 i=PN0;i<=PN7;i++)
+       PinMode(PTB,i,OUTPUT);
+}
+
+void Application(void){
+   Uint8 pinsCounter = PN0;
+   while(1){
+       if(pinsCounter > PN7)
+           pinsCounter = PN0;
+       DigitalWrite(PTB,pinsCounter,HIGH);
+       _delay_ms(500);
+       DigitalWrite(PTB,pinsCounter++,LOW);
+   }
 }

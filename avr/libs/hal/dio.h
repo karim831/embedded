@@ -2,55 +2,42 @@
 #define __DIO_H__
 
 /*						INCLUDES							*/
-#include "../stdlibs/stdtypes.h"
 
-/*					DIO	MACRO DECLARATION					*/
-
+#include "../stdlibs/std_libs.h"
 
 
-#define			DIO_PORTA			((uint8)0x00)
-#define			DIO_PORTB			((uint8)0x01)
-#define			DIO_PORTC			((uint8)0x02)
-#define			DIO_PORTD			((uint8)0x03)
+/*              PORTS_DECLARATION               */
 
-#define			DIO_PIN0			((uint8)0x00)
-#define			DIO_PIN1			((uint8)0x01)
-#define			DIO_PIN2			((uint8)0x02)
-#define			DIO_PIN3			((uint8)0x03)
-#define			DIO_PIN4			((uint8)0x04)
-#define			DIO_PIN5			((uint8)0x05)
-#define			DIO_PIN6			((uint8)0x06)
-#define			DIO_PIN7			((uint8)0x07)
+#define         PTA          ((Uint8)0x00)
+#define         PTB          ((Uint8)0x01)
+#define         PTC          ((Uint8)0x10)
+#define         PTD          ((Uint8)0x11)
 
-#define			DIO_EMPTY_REG		((uint8)0x00)
-#define			DIO_FULL_REG		((uint8)0xFF)
+/*              PINS_DECLARATION               */
 
-/*					DIO DRIVERS DECLARATION					*/
+#define			PN0             ((Uint8)0x00)
+#define			PN1             ((Uint8)0x01)
+#define			PN2             ((Uint8)0x02)
+#define			PN3             ((Uint8)0x03)
+#define			PN4             ((Uint8)0x04)
+#define			PN5             ((Uint8)0x05)
+#define			PN6             ((Uint8)0x06)
+#define			PN7             ((Uint8)0x07)
 
-/*
-	parameter 1 for port,
-	parameter 2 for pin
-*/
 
-no_ret	  dio_pin_input(uint8, uint8);
-no_ret	  dio_pin_input_pullup(uint8, uint8);
-no_ret	  dio_pin_output_low(uint8, uint8);
-no_ret	  dio_pin_output_high(uint8, uint8); 
-no_ret	  dio_pin_toggle(uint8, uint8);
-uint8	  dio_pin_read_PIN(uint8, uint8);
-uint8	  dio_pin_read_PORT(uint8, uint8);
+/*              MODES               */
+ 
+#define         INPUT           ((Uint8)0x00) 
+#define         INPUT_PULLUP    ((Uint8)0x01)
+#define         OUTPUT          ((Uint8)0x02)
 
-/*
-	parameter is for port
-*/
 
-no_ret	  dio_port_input(uint8);
-no_ret	  dio_port_input_pullup(uint8);
-no_ret	  dio_port_output_low(uint8);
-no_ret	  dio_port_output_high(uint8);
-no_ret	  dio_port_mask(uint8,uint8 mask);
-no_ret	  dio_port_toggle(uint8);
-uint8	  dio_port_read_PIN(uint8);
-uint8	  dio_port_read_PORT(uint8);
+/*              DIO_DRIVERS_DECLARATION             */ 
+
+void PinMode(Uint8 port,Uint8 pin,Uint8 mode);
+
+void DigitalWrite(Uint8 port,Uint8 pin,Uint8 logic);
+
+Uint8 DigitalRead(Uint8 port,Uint8 pin);
 
 #endif

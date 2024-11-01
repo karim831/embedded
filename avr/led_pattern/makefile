@@ -42,5 +42,3 @@ size : $(ELF)
 
 clean : 
 	rm -f  $(ELF) $(HEX) $(LSS)
-
-
