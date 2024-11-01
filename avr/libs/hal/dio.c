@@ -34,13 +34,38 @@ void PinMode(Uint8 port,Uint8 pin,Uint8 mode){
     }
 }
 
-void DigitalWrite(Uint8 port,Uint8 pin,Uint8 logic){
+void PortMode(Uint8 port,Uint8 mode){
+    switch(mode){ 
+        case OUTPUT : 
+            *DDR_Regs[port] = 0xFF;
+            *PORT_Regs[port] = 0x00;
+            break; 
+        case INPUT_PULLUP :
+            *DDR_Regs[port] = 0x00;
+            *PORT_Regs[port] = 0xFF;
+            break;
+        default:
+            *DDR_Regs[port] = *PORT_Regs[port] = 0x00;
+    }
+}
+void PinWrite(Uint8 port,Uint8 pin,Uint8 logic){
     if(logic == HIGH)
         SET_BIT(*PORT_Regs[port],pin);
-    else 
+    else
         CLEAR_BIT(*PORT_Regs[port],pin);
 }
 
-Uint8 DigitalRead(Uint8 port,Uint8 pin){
+void PortWrite(Uint8 port,Uint8 logic){
+    if(logic == HIGH)
+        *PORT_Regs[port] = 0xFF; 
+    else
+        *PORT_Regs[port] = 0x00; 
+}
+
+Uint8 PinRead(Uint8 port,Uint8 pin){
     return READ_BIT(*PIN_Regs[port],pin);
+}
+
+Uint8 PortRead(Uint8 port){
+    return *PIN_Regs[port];
 }

@@ -10,8 +10,8 @@
 
 #define         PTA          ((Uint8)0x00)
 #define         PTB          ((Uint8)0x01)
-#define         PTC          ((Uint8)0x10)
-#define         PTD          ((Uint8)0x11)
+#define         PTC          ((Uint8)0x02)
+#define         PTD          ((Uint8)0x03)
 
 /*              PINS_DECLARATION               */
 
@@ -35,9 +35,11 @@
 /*              DIO_DRIVERS_DECLARATION             */ 
 
 void PinMode(Uint8 port,Uint8 pin,Uint8 mode);
+void PortMode(Uint8 port,Uint8 mode);
 
-void DigitalWrite(Uint8 port,Uint8 pin,Uint8 logic);
+void PinWrite(Uint8 port,Uint8 pin,Uint8 logic);
+void PortWrite(Uint8 port,Uint8 logic);
 
-Uint8 DigitalRead(Uint8 port,Uint8 pin);
-
+Uint8 PinRead(Uint8 port,Uint8 pin);
+Uint8 PortRead(Uint8 port);
 #endif

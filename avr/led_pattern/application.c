@@ -8,8 +8,7 @@ int main(void){
 }
 
 void Setup(void){
-   for(Uint8 i=PN0;i<=PN7;i++)
-       PinMode(PTB,i,OUTPUT);
+    PortMode(PTB,OUTPUT);
 }
 
 void Application(void){
@@ -17,8 +16,8 @@ void Application(void){
    while(1){
        if(pinsCounter > PN7)
            pinsCounter = PN0;
-       DigitalWrite(PTB,pinsCounter,HIGH);
+       PinWrite(PTB,pinsCounter,HIGH);
        _delay_ms(500);
-       DigitalWrite(PTB,pinsCounter++,LOW);
+       PinWrite(PTB,pinsCounter++,LOW);
    }
 }

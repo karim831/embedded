@@ -1,27 +1,34 @@
-#include <util/delay.h>
-#include "../libs/hal/dio.h"
-void dice_pattern(uint8);
+#include "application.h"
 
 int main(void){
-	uint8 num = 0;
-	dice_pattern(num);
-	dio_pin_input(DIO_PORTD,DIO_PIN1);
+    Setup();
+    Application();
+	
+}
+
+void Setup(void){
+    PortMode(PTB,OUTPUT);
+    PinMode(PTD,PN1,INPUT);
+}
+
+void Application(void){
+    Uint8 num = 0;
+	DicePattern(num);
 	while(1){
-		if(dio_pin_read_PIN(DIO_PORTD,DIO_PIN1))
-			dice_pattern(++num % 7);
+		if(PinRead(PTD,PN1))
+			DicePattern(++num % 7);
 	}
 }
 
-
-void dice_pattern(uint8 num){
-	if(num%2) dio_pin_output_high(DIO_PORTB,DIO_PIN1);
+void DicePattern(Uint8 num){
+	if(num%2) PinWrite(PTB,PN1,HIGH);
 	else{
 		if(!num) 
-			dio_port_output_low(DIO_PORTB);
+            PortWrite(PTB,LOW);
 	 	else{
-			dio_pin_output_low(DIO_PORTB,DIO_PIN1);
-			dio_pin_output_high(DIO_PORTB,num);
+            PinWrite(PTB,PN1,LOW);
+            PinWrite(PTB,num,HIGH);
 		}
 	}
-	while(dio_pin_read_PIN(DIO_PORTD,DIO_PIN1));
+	while(PinRead(PTD,PN1));
 }
